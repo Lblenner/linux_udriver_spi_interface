@@ -1,8 +1,6 @@
 #include "format.hpp"
 #include "Spi_Interface.hpp"
 
-using namespace std;
-
 Spi_Interface::Spi_Interface(bool debug)
 {
 	this->debug = debug;
@@ -16,7 +14,7 @@ int Spi_Interface::transmit(command_packet send, sensor_packet *rcv)
 {
 	if (!initialized)
 	{
-		DEBUG(cout << "Interface was not initialized" << endl;)
+		DEBUG(std::cout << "Interface was not initialized" << std::endl;)
 		return 1;
 	}
 	fill_buf(send);
@@ -24,7 +22,7 @@ int Spi_Interface::transmit(command_packet send, sensor_packet *rcv)
 	int status = ioctl(fd, SPI_IOC_MESSAGE(1), xfer);
 	if (status < 0)
 	{
-		DEBUG(cout << "Ioctl error : " << strerror(errno) << endl;)
+		DEBUG(std::cout << "Ioctl error : " << strerror(errno) << std::endl;)
 		return 1;
 	}
 	read_buf(rcv);
@@ -36,30 +34,30 @@ int Spi_Interface::start(const char *device)
 	initialized = false;
 	int ret;
 
-	DEBUG(cout << "Opening SPI device " << device << " ..." << endl;)
+	DEBUG(std::cout << "Opening SPI device " << device << " ..." << std::endl;)
 
 	fd = open(device, O_RDWR);
 
 	if (fd < 0)
 	{
-		DEBUG(cout << "Can't open " << device << endl;)
+		DEBUG(std::cout << "Can't open " << device << std::endl;)
 		return 1;
 	}
 
-	DEBUG(cout << "SPI device " << device << " opened" << endl;)
+	DEBUG(std::cout << "SPI device " << device << " opened" << std::endl;)
 
 	int mode = SPI_MODE_0;
 	ret = ioctl(fd, SPI_IOC_WR_MODE, &mode);
 
 	if (ret < 0)
 	{
-		DEBUG(cout << "Can't set the spi mode : " << endl
-				   << strerror(errno) << endl;)
+		DEBUG(std::cout << "Can't set the spi mode : " << std::endl
+				   << strerror(errno) << std::endl;)
 		close(fd);
 		return 1;
 	}
 
-	DEBUG(cout << "SPI mode set to SPI_MODE_0" << endl;)
+	DEBUG(std::cout << "SPI mode set to SPI_MODE_0" << std::endl;)
 
 	// Set clock speed
 	uint32_t speed = 8000000;
@@ -67,13 +65,13 @@ int Spi_Interface::start(const char *device)
 
 	if (ret < 0)
 	{
-		DEBUG(cout << "Clock speed could not be changed : " << endl
-				   << strerror(errno) << endl;)
+		DEBUG(std::cout << "Clock speed could not be changed : " << std::endl
+				   << strerror(errno) << std::endl;)
 		close(fd);
 		return -1;
 	}
 
-	DEBUG(cout << "SPI clock speed set to 8MHz" << endl;)
+	DEBUG(std::cout << "SPI clock speed set to 8MHz" << std::endl;)
 
 	initialized = true;
 
@@ -89,7 +87,7 @@ int Spi_Interface::stop()
 	}
 	else
 	{
-		DEBUG(cout << "Interface was not initialized" << endl;)
+		DEBUG(std::cout << "Interface was not initialized" << std::endl;)
 		return -1;
 	}
 }

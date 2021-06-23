@@ -1,8 +1,6 @@
 CC = g++
 CFLAGS  = -std=c++2a -Wall -Wextra
 
-
-
 build:
 	mkdir -p ../build/lib
 	mkdir -p ../build/headers

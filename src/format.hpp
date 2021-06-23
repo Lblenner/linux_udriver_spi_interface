@@ -3,8 +3,6 @@
 
 #include <cstdint>
 
-// Convert from and to float
-
 #define UD_QN_POS  24
 #define UD_QN_VEL  11
 #define UD_QN_IQ   10
@@ -13,6 +11,8 @@
 #define UD_QN_KP   11
 #define UD_QN_KD   10
 #define UD_QN_CR   15
+
+// Convert from and to float
 
 #define FLOAT_TO_uD32QN(a,n)      ((uint32_t) ((a) * (1<<(n))))
 #define FLOAT_TO_uD16QN(a,n)      ((uint16_t) ((a) * (1<<(n))))
