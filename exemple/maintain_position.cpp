@@ -15,7 +15,9 @@ int main()
 
 	cout << "Starting...\n";
 
-	spi->start("/dev/spidev0.0");
+	if (spi->start("/dev/spidev0.0") != 0) {
+		return 1;
+	}
 
 	memset(&send, 0, sizeof send);
 	memset(&send, 0, sizeof send);
