@@ -27,7 +27,7 @@ int main()
 	send.Kp_motor1 = 10;
 	send.Kd_motor1 = 0.1;
 
-	unsigned int t = 10000; //every 10 miliseconds
+	unsigned int t = 1000000; //every seconds
 
 	while (true)
 	{
