@@ -13,7 +13,7 @@ int main()
 	sensor_packet rcv;
 	Spi_Interface *spi = new Spi_Interface(true);
 
-	cout << "Hello\n";
+	cout << "Starting...\n";
 
 	spi->start("/dev/spidev0.0");
 
