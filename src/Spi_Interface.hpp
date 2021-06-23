@@ -1,3 +1,5 @@
+ // Copyright (c) 2021 NimbleOne, France.
+
 #ifndef SPI_INTERFACE_HPP_
 #define SPI_INTERFACE_HPP_
 
