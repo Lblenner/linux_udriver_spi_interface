@@ -97,11 +97,11 @@ struct command_packet
 	double position_motor2;
 	double velocity_motor1; // Unit : k rpm 	Min : -16 	Max : 15,9995117188
 	double velocity_motor2;
-	double iq_motor1; 		// Unit : A 		Min : -32 	Max : 31,9990234375
+	double iq_motor1; 	// Unit : A 		Min : -32 	Max : 31,9990234375
 	double iq_motor2;
-	double Kp_motor1; 		// Unit : A/rot 	Min : 0 	Max : 31.99951171875
+	double Kp_motor1; 	// Unit : A/rot 	Min : 0 	Max : 31.99951171875
 	double Kp_motor2; 
-	double Kd_motor1;		// Unit : A/k rpm 	Min : 0 	Max : 63.9990234375
+	double Kd_motor1;	// Unit : A/k rpm 	Min : 0 	Max : 63.9990234375
 	double Kd_motor2;
 	double I_sat_motor1; 	// Unit : A 		Min : 0 	Max : 31,875
 	double I_sat_motor2;
@@ -119,20 +119,22 @@ struct sensor_packet
 	bool index_2_detected;
 	bool index_1_toggle;
 	bool index_2_toggle;
-	uint8_t error_code; // error message from https://github.com/open-dynamic-robot-initiative/blmc_drivers/files/4856546/BLMC_CAN_Interface-010720.pdf
-	double position_motor1;					// Unit : turn 	 	Min : -128	Max : 127,999999940395
+	uint8_t error_code;
+	double position_motor1;		// Unit : turn 	 	Min : -128	Max : 127,999999940395
 	double position_motor2;
-	double velocity_motor1; 				// Unit : k rpm 	Min : -16 	Max : 15,9995117188
+	double velocity_motor1; 	// Unit : k rpm 	Min : -16 	Max : 15,9995117188
 	double velocity_motor2;
-	double iq_motor1;						// Unit : A 		Min : -32 	Max : 31,9990234375
+	double iq_motor1; 		// Unit : A 		Min : -32 	Max : 31,9990234375
 	double iq_motor2;
-	double coil_resistance_motor1;			// Unit : Ohm 		Min : 0 	Max : 1,9999694824
+	double coil_resistance_motor1; 	// Unit : Ohm 		Min : 0 	Max : 1,9999694824
 	double coil_resistance_motor2;
-	double adc_motor1;						// Unit : V 		Min : 0 	Max : 3.99993896484
+	double adc_motor1; 		// Unit : V 		Min : 0 	Max : 3.99993896484
 	double adc_motor2;
 	uint16_t last_index;
 	uint16_t timestamp;
 	uint32_t crc;
 };
 ```
+
+The error code message signification can be found [here](https://github.com/open-dynamic-robot-initiative/blmc_drivers/files/4856546/BLMC_CAN_Interface-010720.pdf).
 
