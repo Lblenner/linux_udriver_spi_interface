@@ -4,11 +4,7 @@ This was developped in order to communicate with the udriver boards using a rasp
 
 This implementation uses the `spidev` kernel module.  
 
-```
-modinfo spidev
-```
-
-In order to use the sofware, you will need at an `spidev` device detected by linux.  
+In order to use the sofware, you will need an `spidev` device detected by linux.  
 We briefly explain how to achieve that on a raspberry below.  
 
 # Usage
